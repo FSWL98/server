@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
-app.use('/api/v1/favorites', routes);
+app.use('/api/v1', routes);
 
 app.get('*', (request, response) => {
     console.log(`URL: ${request.url}`);
