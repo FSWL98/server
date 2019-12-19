@@ -15,7 +15,7 @@ npm run dev
 ```
 To check how it works, you have to use either client app, which is located in this repo,
 either Postman or any other app to check endpoints.
-###Endpoints
+### Endpoints
 **GET** http://*hostname*/api/v1/favorites - get all favorites from database \
 **POST** http://*hostname*/api/v1/favorites - creates new favorite in database
 (body with "name" parameter required) \
