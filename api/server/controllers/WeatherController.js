@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 const util = new Util();
 class WeatherController {
     static async getWeatherByCityName(req, res) {
+        console.log('weather by name');
         if (!req.query.cityName) {
             util.setError(400, 'Please provide a name of the city');
             return util.send(res);
@@ -24,6 +25,7 @@ class WeatherController {
         return util.send(res);
     }
     static async getWeatherByCoordinates(req, res) {
+        console.log('weather by coords');
         if (!(req.query.lon && req.query.lat)) {
             util.setError(400, 'Please provide both latitude and longitude');
             return util.send(res);

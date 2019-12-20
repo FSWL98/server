@@ -4,6 +4,7 @@ import Util from '../utils/Utils'
 const util = new Util();
 class FavoriteController {
     static async getAllFavorites(req, res) {
+        console.log('get all favs');
         try {
             const allFavorites = await FavoriteService.getAllFavorites();
             if(allFavorites.length > 0) {
@@ -18,6 +19,7 @@ class FavoriteController {
         }
     }
     static async addFavorite (req, res) {
+        console.log('add new fav');
         if(!req.body.name) {
             util.setError(400, 'Please provide complete datails');
             return util.send(res);
@@ -38,18 +40,14 @@ class FavoriteController {
         }
     }
     static async deleteFavorite (req, res) {
-        const {id} = req.params;
-
-        if (!Number(id)) {
-            util.setError(400, 'Please provide a numeric value');
-        }
-
+        console.log('delete fav');
+        const {name} = req.params;
         try {
-            const toDelete = await FavoriteService.deleteFavorite(id);
+            const toDelete = await FavoriteService.deleteFavorite(name);
             if(toDelete) {
                 util.setSuccess(200, 'Favorite deleted');
             } else {
-                util.setError(404, `Cannot find favorite with id ${id}`)
+                util.setError(404, `Cannot find favorite with name ${name}`)
             }
         } catch (e) {
             util.setError(400, e);

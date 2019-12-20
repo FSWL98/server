@@ -17,12 +17,12 @@ class FavoritesService {
             throw e;
         }
     }
-    static async deleteFavorite (id) {
+    static async deleteFavorite (cityName) {
         try {
-            const toDelete = await database.Favorite.findOne({ where: { id: Number(id)}});
+            const toDelete = await database.Favorite.findOne({ where: { name: cityName}});
             if (toDelete) {
                 return await database.Favorite.destroy({
-                    where: {id: Number(id)}
+                    where: {name: cityName}
                 });
             }
             return null;

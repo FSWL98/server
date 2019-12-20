@@ -7,7 +7,7 @@ const router = Router();
 
 router.get('/favorites', FavoriteController.getAllFavorites);
 router.post('/favorites', FavoriteController.addFavorite);
-router.delete('/favorites/:id', FavoriteController.deleteFavorite);
+router.delete('/favorites/:name', FavoriteController.deleteFavorite);
 router.get('/weather', WeatherController.getWeatherByCityName);
 router.get('/weather/coordinates', WeatherController.getWeatherByCoordinates);
 
