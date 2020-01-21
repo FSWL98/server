@@ -10,6 +10,12 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, Content-Type');
+    res.header('Access-Control-Allow-Methods', 'DELETE');
+    next();
+});
 
 app.use('/api/v1', routes);
 
